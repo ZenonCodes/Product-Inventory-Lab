@@ -4,7 +4,7 @@ public class Sneaker {
     private int id, qty;
     private String name, brand, sport, color;
     private float size, price;
-
+    public Sneaker (){}
     public Sneaker(int expectedId, String expectedName, String expectedBrand, String expectedSport, int expectedQty, float expectedPrice) {
     }
 
