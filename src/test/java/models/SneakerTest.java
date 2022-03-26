@@ -8,6 +8,30 @@ import static org.junit.jupiter.api.Assertions.*;
 class SneakerTest {
 
     @Test
+    public void constructorTest(){
+
+        // G
+        int expectedId = 22;
+        String expectedName = "FE LO 1920";
+        String expectedBrand = "Feiyue";
+        String expectedSport = "Parkour";
+        int expectedQty = 1;
+        float expectedPrice = 30.00f;
+
+        // W
+        Sneaker testSneaker = new Sneaker(expectedId, expectedName, expectedBrand,
+                expectedSport, expectedQty,expectedPrice);
+
+        // T
+        Assertions.assertEquals(expectedId, testSneaker.getId());
+        Assertions.assertEquals(expectedName, testSneaker.getName());
+        Assertions.assertEquals(expectedBrand, testSneaker.getBrand());
+        Assertions.assertEquals(expectedSport, testSneaker.getSport());
+        Assertions.assertEquals(expectedQty, testSneaker.getQty());
+        Assertions.assertEquals(expectedPrice, testSneaker.getPrice());
+    }
+
+    @Test
     void getIdTest() {
         // G
         int expected = 3289;

@@ -5,6 +5,9 @@ public class Sneaker {
     private String name, brand, sport, color;
     private float size, price;
 
+    public Sneaker(int expectedId, String expectedName, String expectedBrand, String expectedSport, int expectedQty, float expectedPrice) {
+    }
+
     public int getId() {
         return id;
     }
