@@ -5,7 +5,18 @@ public class Sneaker {
     private String name, brand, sport;
     private float size, price;
 
-    public Sneaker(int Id, String name, String brand, String sport, int qty, float price, float size) {
+    public Sneaker(int id, String name, String brand, String sport, int qty, float price, float size) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.sport = sport;
+        this.qty = qty;
+        this.price = price;
+        this.size = size;
+    }
+
+    public Sneaker() {
+
     }
 
     public int getId() {
