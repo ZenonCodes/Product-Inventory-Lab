@@ -105,19 +105,6 @@ class SneakerTest {
     }
 
 
-//    @Test
-//    void getColorTest() {
-//        // G
-//        String expected = "Yellow";
-//
-//        // W
-//        Sneaker testSneaker = new Sneaker();
-//        testSneaker.setColor(expected);
-//        testSneaker.getColor();
-//
-//        // T
-//        Assertions.assertEquals(expected, testSneaker.getColor());
-//    }
 
     @Test
     void getSizeTest() {
