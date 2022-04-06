@@ -20,7 +20,7 @@ class SneakerTest {
 
         // W
         Sneaker testSneaker = new Sneaker(expectedId, expectedName, expectedBrand,
-                expectedSport, expectedQty,expectedPrice);
+                expectedSport, expectedQty,expectedPrice, expectedPrice);
 
         // T
         Assertions.assertEquals(expectedId, testSneaker.getId());

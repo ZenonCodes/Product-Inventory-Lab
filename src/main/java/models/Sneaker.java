@@ -2,10 +2,10 @@ package models;
 
 public class Sneaker {
     private int id, qty;
-    private String name, brand, sport, color;
+    private String name, brand, sport;
     private float size, price;
 
-    public Sneaker(int expectedId, String expectedName, String expectedBrand, String expectedSport, int expectedQty, float expectedPrice) {
+    public Sneaker(int Id, String name, String brand, String sport, int qty, float price, float size) {
     }
 
     public int getId() {
@@ -46,14 +46,6 @@ public class Sneaker {
 
     public void setSport(String sport) {
         this.sport = sport;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public float getSize() {
