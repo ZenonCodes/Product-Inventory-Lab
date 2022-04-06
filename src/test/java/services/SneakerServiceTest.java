@@ -8,23 +8,39 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class SneakerServiceTest {
-    SneakerService sneakerService;
-    Sneaker testSneaker,testSneaker2,testSneaker3;
-    String expectedName = "Stan Smith";
+    SneakerService sneakerService = new SneakerService();
+    String expectedName = "RandomShoe";
     String expectedBrand = "Adidas";
     String expectedSport = "Tennis";
     float expectedSize = 10.5f;
     int expectedQty = 10;
     float expectedPrice = 80.00f;
+    Sneaker testSneaker = sneakerService.create(expectedName, expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
 
-    @Before
-    public void init(){
-        sneakerService = new SneakerService();
-        testSneaker = SneakerService.create(expectedName, expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
+
+
+
+    @Test
+    public void findSneakerTest() {
+        sneakerService.setNextId(1);
+        int idToFind = 1;
+        System.out.println(sneakerService.getInventory());
+        assertEquals(sneakerService.findSneaker(idToFind), testSneaker);
+
+    }
+    @Test
+    public void findSneakerWhenNotPresentTest() {
+        sneakerService.setNextId(1);
+        int idToFind = 2;
+        System.out.println(sneakerService.getInventory());
+        Boolean expected = null;
+        assertEquals(sneakerService.findSneaker(idToFind),expected);
+
     }
 
     @Test
     public void createTest(){
+        sneakerService.setNextId(1);
         int actualId = testSneaker.getId();
         String actualName = testSneaker.getName();
         String actualBrand = testSneaker.getBrand();
@@ -43,38 +59,28 @@ class SneakerServiceTest {
 
     }
 
-    @Test
-    public void findSneakerTest(int id) {
 
-    }
 
     @Test
     public void findAll() {
-        // should return a basic array copy of the ArrayList
+        sneakerService.setNextId(1);
+        assertTrue(sneakerService.findAll().containsValue(testSneaker));
     }
 
     @Test
     public void deleteTestWhenIdIsPresent() {
-        int idToRemove = 2;
-//
-        sneakerService = new SneakerService();
-        testSneaker = SneakerService.create(expectedName, expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
-        testSneaker2 = SneakerService.create("B", expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
-        testSneaker3 = SneakerService.create("A", expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
+        sneakerService.setNextId(1);
+        int idToRemove = 1;
         boolean expected = (sneakerService.delete(idToRemove));
-
+        sneakerService.delete(idToRemove);
         System.out.println(sneakerService.getInventory());
         assertTrue(expected);
     }
 
     @Test
     public void deleteTestWhenIdIsNotPresent() {
+        sneakerService.setNextId(1);
         int idToRemove = 20;
-//
-        sneakerService = new SneakerService();
-        testSneaker = SneakerService.create(expectedName, expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
-        testSneaker2 = SneakerService.create("B", expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
-        testSneaker3 = SneakerService.create("A", expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
         boolean expected = (sneakerService.delete(idToRemove));
 
         System.out.println(sneakerService.getInventory());

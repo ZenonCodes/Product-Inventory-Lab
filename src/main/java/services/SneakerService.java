@@ -2,46 +2,51 @@ package services;
 
 import models.Sneaker;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.function.Predicate;
 
 public class SneakerService {
-    private static int nextId = 1;
-    private static ArrayList <Sneaker> inventory = new ArrayList<>();
 
-    public static Sneaker create(String expectedName, String expectedBrand, String expectedSport, int expectedQty, float expectedPrice, float expectedSize) {
-       Sneaker createdSneaker =  new Sneaker(nextId++, expectedName, expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
-       inventory.add(createdSneaker);
-       return createdSneaker;
+    private static int nextId = 1;
+    private HashMap<Integer,Sneaker> inventory = new HashMap<>();
+
+    public Sneaker create(String expectedName, String expectedBrand, String expectedSport, int expectedQty, float expectedPrice, float expectedSize) {
+       Sneaker createdSneaker =  new Sneaker(nextId, expectedName, expectedBrand, expectedSport, expectedQty, expectedPrice, expectedSize);
+       inventory.put(createdSneaker.getId(), createdSneaker);
+       return inventory.get(nextId++);
 
     }
 
     //read
     public Sneaker findSneaker(int id) {
-        // should take an int and return an object with that id, if exists
+        if (inventory.containsKey(id)) return inventory.get(id);
         return null;
     }
 
     //read all
-    public Sneaker[] findAll() {
-        return null;
-    }
+    public HashMap<Integer, Sneaker> findAll() {
 
-    public boolean delete(int id) {
-        for (Sneaker s: inventory) {
-            if (s.getId() == id){
-                inventory.remove(s);
-                return true;
-            }
-        }
-return false;
-    }
-
-    public ArrayList<Sneaker> getInventory() {
         return inventory;
     }
 
-    public void setInventory(ArrayList<Sneaker> inventory) {
-        this.inventory = inventory;
+    public boolean delete(int id) {
+
+            if(inventory.containsKey(id)){
+                inventory.remove(id);
+                nextId--;
+                return true;
+            }
+    return false;
     }
+
+    public HashMap<Integer, Sneaker> getInventory() {
+        return this.inventory;
+    }
+    public static void setNextId(int nextId) {
+        SneakerService.nextId = nextId;
+    }
+
 }
