@@ -43,6 +43,5 @@ return false;
 
     public void setInventory(ArrayList<Sneaker> inventory) {
         this.inventory = inventory;
->>>>>>> feature-sneaker-services
     }
 }
