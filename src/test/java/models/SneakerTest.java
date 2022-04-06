@@ -20,7 +20,7 @@ class SneakerTest {
 
         // W
         Sneaker testSneaker = new Sneaker(expectedId, expectedName, expectedBrand,
-                expectedSport, expectedQty,expectedPrice);
+                expectedSport, expectedQty,expectedPrice, expectedPrice);
 
         // T
         Assertions.assertEquals(expectedId, testSneaker.getId());
@@ -105,19 +105,19 @@ class SneakerTest {
     }
 
 
-    @Test
-    void getColorTest() {
-        // G
-        String expected = "Yellow";
-
-        // W
-        Sneaker testSneaker = new Sneaker();
-        testSneaker.setColor(expected);
-        testSneaker.getColor();
-
-        // T
-        Assertions.assertEquals(expected, testSneaker.getColor());
-    }
+//    @Test
+//    void getColorTest() {
+//        // G
+//        String expected = "Yellow";
+//
+//        // W
+//        Sneaker testSneaker = new Sneaker();
+//        testSneaker.setColor(expected);
+//        testSneaker.getColor();
+//
+//        // T
+//        Assertions.assertEquals(expected, testSneaker.getColor());
+//    }
 
     @Test
     void getSizeTest() {

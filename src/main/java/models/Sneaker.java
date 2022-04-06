@@ -2,7 +2,7 @@ package models;
 
 public class Sneaker {
     private int id, qty;
-    private String name, brand, sport, color;
+    private String name, brand, sport;
     private float size, price;
 
     public Sneaker(int expectedId, String expectedName, String expectedBrand, String expectedSport, int expectedQty, float expectedPrice) {
@@ -14,6 +14,18 @@ public class Sneaker {
         this.price = expectedPrice;
     }
     public Sneaker (){}
+
+    public Sneaker(int id, String name, String brand, String sport, int qty, float price, float size) {
+        this.id = id;
+        this.name = name;
+        this.brand = brand;
+        this.sport = sport;
+        this.qty = qty;
+        this.price = price;
+        this.size = size;
+    }
+
+
     public int getId() {
         return id;
     }
@@ -52,14 +64,6 @@ public class Sneaker {
 
     public void setSport(String sport) {
         this.sport = sport;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
     }
 
     public float getSize() {
